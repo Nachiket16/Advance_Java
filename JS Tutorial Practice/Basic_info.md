@@ -14,3 +14,14 @@ console.log('Hello world');
 - 1- Use script tag at the bottom in body tag
 - As browser parse file from top to bottom, if it's on top it will take
 - time to exec the JS on top and loading will take time
+
+- Variable naming Rule
+
+- Cannot be a reserved keyword
+- Cannot start with the number
+- Can't contain a space of hyphen(-)
+- Use camelCase
+___
+
+- JS is a dynamic type language
+- Meaning variable type is changeable
