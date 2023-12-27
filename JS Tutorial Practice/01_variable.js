@@ -14,7 +14,7 @@ var firstName = "Nachiket";
 console.log(firstName);
 
 // change value 
-firstName = "Aniket";
+var firstName = "Aniket";
 console.log(firstName);
 
 
