@@ -1,17 +1,16 @@
-let fruits = ["apple","mango","grapes"];
-fruits.push("banana") ;
-for(let i =0 ; i<fruits.length; i++){
-    console.log(fruits[i]);
-}
-console.log("----------------------------")
+const users = [
+    {userId: 1, name:'Nachiket', gender:'M'},
+    {userId: 2, name:'Aniket', gender:'M'},
+    {userId: 3, name:'Richa', gender:'F'},
+]
 
-let i = 0;
-while(i<fruits.length){
-    console.log(fruits[i])
-    i++;
+for(let user of users){
+    console.log(user);
 }
-console.log("----------------------------")
 
-for(let fruit of fruits){
-    console.log(fruit)
-}
+// Nested destructuring
+
+const[user1,user2,user3] = users;
+console.log(user1,user2,user3); //Will print the Object itself
+
+cosn
