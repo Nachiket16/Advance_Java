@@ -1,16 +1,35 @@
-const users = [
-    {userId: 1, name:'Nachiket', gender:'M'},
-    {userId: 2, name:'Aniket', gender:'M'},
-    {userId: 3, name:'Richa', gender:'F'},
-]
-
-for(let user of users){
-    console.log(user);
+function singHappyBirthday(){
+    console.log("happy birthday to you....")
 }
 
-// Nested destructuring
+function addition( a, b){
+    return a+b;
+}
 
-const[user1,user2,user3] = users;
-console.log(user1,user2,user3); //Will print the Object itself
+function concat(s1, s2){
+    return s1.concat(s2)
+}
 
-cosn
+singHappyBirthday();
+
+const add = addition(3,4);
+console.log(add);
+
+console.log(concat("Nachiket", "Khule"));
+
+function isEven(number){
+    return number%2===0;
+}
+
+console.log(isEven(8));
+
+const birthday = () =>{
+    console.log("Happy birthday arrow function")
+}
+
+birthday();
+
+const birthdayFunction = function (){
+    console.log("happy birthday Expression function....")
+}
+birthdayFunction();
