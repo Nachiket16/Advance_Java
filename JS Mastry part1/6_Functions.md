@@ -1,74 +1,111 @@
-### Functions
-- Function are set of statement to execute the task
+# JavaScript Function Concepts
 
-```JS
-//Function Declaration
-function singHappyBirthday(){
-    console.log("happy birthday to you....")
-}
-singleHappyBirthday();
-//Function Expression
-const birthdayFunction = function (){
-    console.log("happy birthday to you....")
-}
-birthdayFunction();
-//Arrow function
-const birthday = () =>{
-    console.log("Happy birthday arrow function")
-}
+## 1. Functions
 
-birthday();
+Functions are reusable blocks of code that perform a specific task or calculate a value.
 
-```
-### Hoisting 
+### Key Points:
+- Functions can be declared using function declarations or function expressions.
+- They can accept parameters and return values.
+- Functions in JavaScript are first-class objects.
 
-- In JS if function is declared manner, It can be called from anywhere in the program
-- But if function is in expressed manner it will give you an error this is called as hoisting
-```JS
-hello() //This is allowed
-function hello(){
-    console.log("hello");
+### Example:
+
+```javascript
+// Function Declaration
+function greet(name) {
+  return `Hello, ${name}!`;
 }
 
-hi();   //before expressed if function is called it give u error
-const hi = function(){
-    console.log("hi")
-}
+// Function Expression
+const sayGoodbye = function(name) {
+  return `Goodbye, ${name}!`;
+};
 
+console.log(greet("Alice")); // Output: Hello, Alice!
+console.log(sayGoodbye("Bob")); // Output: Goodbye, Bob!
 ```
 
-# Function inside function
+## 2. Hoisting
 
-```JS
-const app = () => {
-    const myFunc = () =>{
-        console.log("hello from myFunc")
-    }
+Hoisting is JavaScript's default behavior of moving declarations to the top of their scope.
 
-    const addTwo = (num1, num2) => {
-        return num1+num2;
-    }
-    const mulTwo = (num1, num2) => num1*num2;
+### Key Points:
+- Function declarations are hoisted completely.
+- Variable declarations are hoisted, but not their initializations.
+- Let and const declarations are hoisted but not initialized (Temporal Dead Zone).
 
-    cosole.log("inside app")
-    myFunc();
+### Example:
+
+```javascript
+console.log(hoistedFunction()); // Output: "I am hoisted!"
+
+function hoistedFunction() {
+  return "I am hoisted!";
 }
-app();
-// This will only run app and give: inside app
-// If we call myFunc() inside the app() then : inside app \n hello from myFunc
+
+console.log(x); // Output: undefined
+var x = 5;
+
+// console.log(y); // This would cause a ReferenceError
+let y = 10;
 ```
 
-# Block scope vs Function scope
+## 3. Nested Functions
 
-- Let & const are block scope
-- var is function scope
+Nested functions are functions defined inside other functions.
 
-``` JS
-{
-    let firstName = "nachiket";
-    var lastName = "khule";
+### Key Points:
+- Inner functions have access to variables in their outer scope.
+- They help in creating private variables and functions.
+- Useful for organizing code and creating closures.
 
+### Example:
+
+```javascript
+function outerFunction(x) {
+  function innerFunction(y) {
+    return x + y;
+  }
+  return innerFunction;
 }
-console.log(firstName); //Error: Uncaught referenceError
-console.log(lastName); //khule : no error
+
+const addFive = outerFunction(5);
+console.log(addFive(3)); // Output: 8
+console.log(addFive(7)); // Output: 12
 ```
+
+## 4. Functions Returning Functions
+
+A function can return another function, which is a powerful feature for creating specialized functions.
+
+### Key Points:
+- Allows for function composition and currying.
+- Useful for creating higher-order functions.
+- Enables the creation of closures.
+
+### Example:
+
+```javascript
+function multiplyBy(factor) {
+  return function(number) {
+    return number * factor;
+  };
+}
+
+const double = multiplyBy(2);
+const triple = multiplyBy(3);
+
+console.log(double(5)); // Output: 10
+console.log(triple(5)); // Output: 15
+```
+
+## Quick Revision Points
+
+1. Functions are reusable code blocks that can accept parameters and return values.
+2. Function declarations are hoisted, while function expressions are not.
+3. Nested functions have access to their outer function's scope.
+4. Functions can return other functions, allowing for powerful programming patterns.
+5. Hoisting moves declarations to the top of their scope, but initializations stay in place.
+6. Nested functions and functions returning functions are key to creating closures.
+7. Understanding these concepts is crucial for writing efficient and organized JavaScript code.
